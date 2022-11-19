@@ -1,0 +1,410 @@
+$lightGreen: #b9e7e7;
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 1024px;
+    //LOGIN && REGISTRATION
+    .auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $lightGreen;
+
+      h1 {
+        font-style: 20px;
+        color: teal;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: white;
+        width: 200px;
+        gap: 20px;
+
+        input {
+          padding: 10px;
+          border: none;
+          border-bottom: 1px solid gray;
+          outline: none;
+        }
+
+        button {
+          color: white;
+          padding: 10px;
+          background-color: teal;
+          cursor: pointer;
+          border: none;
+        }
+
+        span {
+          font-size: 12px;
+          text-align: center;
+        }
+
+        p {
+          font-size: 12px;
+          text-align: center;
+          color: red;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    .container {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      .logo {
+        img {
+          width: 150px;
+        }
+      }
+
+      .links {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .link {
+          text-decoration: none;
+          color: inherit;
+          h6 {
+            font-style: 16px;
+            font-weight: 300;
+          }
+
+          span {
+            cursor: pointer;
+          }
+        }
+        .write {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: $lightGreen;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 300;
+
+          &:hover {
+            background-color: white;
+            color: teal;
+            border: 1px solid teal;
+            width: 48px;
+            height: 48px;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: 100px;
+    padding: 20px;
+    background-color: $lightGreen;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .home {
+    .posts {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+
+      .post {
+        display: flex;
+        gap: 100px;
+        .image {
+          flex: 1;
+          position: relative;
+
+          img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: $lightGreen;
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            z-index: -1;
+          }
+        }
+
+        .content {
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          h1 {
+            font-size: 48px;
+          }
+          p {
+            font-size: 16px;
+          }
+
+          button {
+            width: max-content;
+            padding: 10px 20px;
+            border: 1px solid $lightGreen;
+            cursor: pointer;
+            background-color: #fff;
+            color: teal;
+
+            &:hover {
+              border: 1px solid white;
+              background-color: $lightGreen;
+              color: black;
+            }
+          }
+        }
+
+        &:nth-child(2n + 1) {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  .single {
+    display: flex;
+    gap: 50px;
+
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-style: 14px;
+        .avatar {
+          width: 50px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          border-radius: 50%;
+          img {
+            height: 50px;
+          }
+        }
+
+        .info {
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .edit {
+          display: flex;
+          gap: 5px;
+          margin-left: 20px;
+
+          .buttons {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &.edit_button {
+              background-color: teal;
+            }
+
+            &.delete_button {
+              background-color: palevioletred;
+            }
+          }
+        }
+      }
+
+      h1 {
+        margin-bottom: 40px;
+        font-size: 48px;
+        color: #333;
+      }
+
+      p {
+        text-align: justify;
+        line-height: 30px;
+      }
+    }
+
+    .menu {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      h1 {
+        font-size: 20px;
+        color: #555;
+      }
+
+      .post {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        h2 {
+          color: #555;
+        }
+
+        button {
+          width: max-content;
+          padding: 7.5px 15px;
+          border: 1px solid $lightGreen;
+          cursor: pointer;
+          background-color: #fff;
+          color: teal;
+
+          &:hover {
+            border: 1px solid white;
+            background-color: $lightGreen;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  .add {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input {
+        padding: 10px;
+        border: 1px solid lightgray;
+      }
+
+      .editorContainer {
+        min-height: 350px;
+        overflow: scroll;
+        border: 1px solid lightgray;
+
+        .editor {
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+    .menu {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .item {
+        border: 1px solid lightgray;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555;
+
+        .category_item {
+          display: flex;
+          align-items: center;
+          width: 50%;
+          gap: 10px;
+        }
+
+        .file {
+          width: fit-content;
+          padding: 10px 15px;
+          border: 1px solid $lightGreen;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          &:hover {
+            background-color: $lightGreen;
+            border: none;
+            color: #000;
+            padding: 10.5px 15.5px;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+
+          :first-child {
+            color: white;
+            background-color: teal;
+            border: 1px solid white;
+            padding: 5px 10px;
+            cursor: pointer;
+          }
+
+          :last-child {
+            color: teal;
+            background-color: #fff;
+            border: 1px solid teal;
+            padding: 5px 10px;
+            cursor: pointer;
+          }
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+
+        label {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
