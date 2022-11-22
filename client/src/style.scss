@@ -63,6 +63,16 @@ $lightGreen: #b9e7e7;
   }
 
   .navbar {
+    .authButtons {
+      cursor: pointer;
+      padding: 3px 5px;
+      border-radius: 5px;
+
+      &:hover {
+        color: white;
+        background-color: teal;
+      }
+    }
     .container {
       padding: 10px 0;
       display: flex;
@@ -404,6 +414,20 @@ $lightGreen: #b9e7e7;
         label {
           text-decoration: underline;
         }
+      }
+    }
+  }
+
+  .single {
+    .image-container {
+      width: 100%;
+      max-height: 400px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        width: 100%;
       }
     }
   }

@@ -36,41 +36,33 @@ function register(req, res) {
 
 function login(req, res) {
   try {
-    // check user
-    const q = 'SELECT * FROM users WHERE  username = ?';
+    const q = 'SELECT * FROM users WHERE username = ?';
 
     pool.getConnection((error, connection) => {
       connection.query(q, [req.body.username], (err, data) => {
-        if (err) throw err;
-        else {
-          if (!data.length) return res.status(404).json('User not found!');
+        if (err) return res.status(500).json(err);
+        if (data.length === 0) return res.status(404).json('User not found!');
 
-          const user = data[0];
+        //Check password
+        const isPasswordCorrect = bcrypt.compareSync(
+          req.body.password,
+          data[0].password
+        );
 
-          // Check password
-          const isPasswordCorrect = bcrypt.compareSync(
-            req.body.password,
-            user.password
-          );
+        if (!isPasswordCorrect)
+          return res.status(400).json('Wrong username or password!');
 
-          if (!isPasswordCorrect)
-            return res.status(400).json('Wrong username or password!');
+        const token = jwt.sign({ id: data[0].id }, 'jwtkey');
+        const { password, ...other } = data[0];
 
-          // create a access token
-          const token = jwt.sign({ id: user.id }, 'secretjwtkey');
-
-          const { password, ...other } = user;
-
-          res
-            .cookie('access_token', token, {
-              httpOnly: true,
-            })
-            .status(200)
-            .json(other);
-        }
-
-        connection.release();
+        res
+          .cookie('access_token', token, {
+            httpOnly: true,
+          })
+          .status(200)
+          .json(other);
       });
+      connection.release();
     });
   } catch (error) {
     console.log(error);

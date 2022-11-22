@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../style.scss';
-import axios from '../axios.js';
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 
